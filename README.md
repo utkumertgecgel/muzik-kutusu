@@ -1,84 +1,84 @@
 # 🎵 Müzik Kutusu
 
-A beautiful, offline-first music player app built with Flutter. Organize your music library, create playlists, and enjoy your favorite tracks with a sleek Spotify-inspired interface.
+Flutter ile geliştirilmiş, çevrimdışı çalışabilen güzel bir müzik çalar uygulaması. Müzik kütüphanenizi düzenleyin, çalma listeleri oluşturun ve Spotify'dan ilham alan şık arayüzle şarkılarınızın keyfini çıkarın.
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 
-## ✨ Features
+## ✨ Özellikler
 
-- **🔐 Password Protection** - Secure your music library with a personal PIN
-- **📁 Local Music Import** - Add songs from your device storage
-- **📋 Playlist Management** - Create, edit, and organize custom playlists
-- **🎨 Spotify-Inspired UI** - Dark theme with vibrant green accents
-- **🔀 Shuffle & Repeat** - Multiple playback modes
-- **🔍 Search** - Quickly find songs by title or artist
-- **📴 Offline First** - No internet required, all data stored locally
+- **🔐 Şifre Koruması** - Müzik kütüphanenizi kişisel PIN ile koruyun
+- **📁 Yerel Müzik Ekleme** - Cihazınızdaki şarkıları uygulamaya ekleyin
+- **📋 Çalma Listesi Yönetimi** - Özel çalma listeleri oluşturun ve düzenleyin
+- **🎨 Spotify Tarzı Arayüz** - Canlı yeşil vurgulu koyu tema
+- **🔀 Karışık ve Tekrar Modu** - Çoklu çalma modları
+- **🔍 Arama** - Şarkı adı veya sanatçıya göre hızlı arama
+- **📴 Çevrimdışı Çalışma** - İnternet gerektirmez, tüm veriler yerel olarak saklanır
 
-## 📱 Screenshots
+## 📱 Ekran Görüntüleri
 
-| Login | Home | Player |
-|-------|------|--------|
-| Password protection | Song library with search | Full-screen player with controls |
+| Giriş | Ana Ekran | Çalar |
+|-------|-----------|-------|
+| Şifre koruması | Arama özellikli şarkı kütüphanesi | Kontrollü tam ekran çalar |
 
-## 🛠️ Tech Stack
+## 🛠️ Kullanılan Teknolojiler
 
 - **Framework:** Flutter 3.x
-- **Language:** Dart
-- **Database:** SQLite (sqflite)
-- **State Management:** Provider
-- **Audio:** audioplayers
-- **File Handling:** file_picker, path_provider
+- **Dil:** Dart
+- **Veritabanı:** SQLite (sqflite)
+- **State Yönetimi:** Provider
+- **Ses:** audioplayers
+- **Dosya İşlemleri:** file_picker, path_provider
 
-## 📦 Installation
+## 📦 Kurulum
 
-1. **Clone the repository**
+1. **Depoyu klonlayın**
    ```bash
-   git clone https://github.com/yourusername/muzik-kutusu.git
+   git clone https://github.com/utkumertgecgel/muzik-kutusu.git
    cd muzik-kutusu
    ```
 
-2. **Install dependencies**
+2. **Bağımlılıkları yükleyin**
    ```bash
    flutter pub get
    ```
 
-3. **Run the app**
+3. **Uygulamayı çalıştırın**
    ```bash
    flutter run
    ```
 
-## 🏗️ Project Structure
+## 🏗️ Proje Yapısı
 
 ```
 lib/
-├── main.dart              # App entry point
+├── main.dart              # Uygulama giriş noktası
 ├── database/
-│   └── database_helper.dart   # SQLite operations
+│   └── database_helper.dart   # SQLite işlemleri
 ├── models/
-│   ├── song.dart          # Song data model
-│   └── playlist.dart      # Playlist data model
+│   ├── song.dart          # Şarkı veri modeli
+│   └── playlist.dart      # Çalma listesi veri modeli
 ├── providers/
-│   └── music_provider.dart    # State management
+│   └── music_provider.dart    # State yönetimi
 ├── screens/
-│   ├── login_screen.dart      # Authentication
-│   ├── home_screen.dart       # Main music library
-│   ├── player_screen.dart     # Full-screen player
-│   └── playlist_screen.dart   # Playlist management
+│   ├── login_screen.dart      # Kimlik doğrulama
+│   ├── home_screen.dart       # Ana müzik kütüphanesi
+│   ├── player_screen.dart     # Tam ekran çalar
+│   └── playlist_screen.dart   # Çalma listesi yönetimi
 ├── widgets/
-│   ├── song_tile.dart     # Song list item
-│   └── mini_player.dart   # Bottom mini player
+│   ├── song_tile.dart     # Şarkı liste öğesi
+│   └── mini_player.dart   # Alt mini çalar
 └── theme/
-    └── app_theme.dart     # Spotify-inspired theme
+    └── app_theme.dart     # Spotify tarzı tema
 ```
 
-## 💾 Database Schema
+## 💾 Veritabanı Şeması
 
-The app uses SQLite with three tables:
+Uygulama üç tablolu SQLite veritabanı kullanır:
 
 ```sql
--- Songs table
+-- Şarkılar tablosu
 CREATE TABLE songs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   title TEXT NOT NULL,
@@ -88,14 +88,14 @@ CREATE TABLE songs (
   createdAt TEXT NOT NULL
 );
 
--- Playlists table
+-- Çalma listeleri tablosu
 CREATE TABLE playlists (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
   createdAt TEXT NOT NULL
 );
 
--- Many-to-many relationship
+-- Çoktan-çoğa ilişki tablosu
 CREATE TABLE playlist_songs (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   playlistId INTEGER NOT NULL,
@@ -105,26 +105,26 @@ CREATE TABLE playlist_songs (
 );
 ```
 
-## 🎨 Design
+## 🎨 Tasarım
 
-The UI follows Spotify's design language with:
-- **Primary Color:** `#1DB954` (Spotify Green)
-- **Background:** `#121212` (Rich Black)
-- **Surface:** `#1E1E1E` (Dark Gray)
-- Smooth animations and transitions
-- Rotating album art during playback
+Arayüz Spotify tasarım dilini takip eder:
+- **Ana Renk:** `#1DB954` (Spotify Yeşili)
+- **Arka Plan:** `#121212` (Zengin Siyah)
+- **Yüzey:** `#1E1E1E` (Koyu Gri)
+- Akıcı animasyonlar ve geçişler
+- Çalma sırasında dönen albüm kapağı
 
-## 🤝 Contributing
+## 🤝 Katkıda Bulunma
 
-Contributions are welcome! Feel free to:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
+Katkılarınızı bekliyoruz! Yapmanız gerekenler:
+1. Depoyu fork'layın
+2. Özellik dalı oluşturun
+3. Pull request gönderin
 
-## 📄 License
+## 📄 Lisans
 
-This project is open source and available under the [MIT License](LICENSE).
+Bu proje açık kaynaklıdır ve [MIT Lisansı](LICENSE) altında sunulmaktadır.
 
 ---
 
-<p align="center">Made with ❤️ and Flutter</p>
+<p align="center">❤️ ve Flutter ile yapıldı</p>
